@@ -1,27 +1,15 @@
+#include "textBased.h"
 #include<iostream>
 #include<conio.h>
 #include<stdlib.h>
 #include<ctime>
-
+#include<thread>
 
 using namespace std;
 
-
-string plyrName;
-int rounds;
-int rnd;
-int plyrScore = 0;
-int compScore = 0;
-int plyrChoice;
-int compChoice;
-int levelChoice;
-int levelOne();
-int levelTwo();
-int levelThree();
-
-
-int main()
+void textBased::levelSelection()
 {
+	
 	cout << "Enter Name: ";
 	cin >> plyrName;
 	cout << "\n";
@@ -53,8 +41,7 @@ int main()
 	}
 }
 
-
-int levelOne()
+void textBased::levelOne()
 {
 	for (int rnd = 1; rnd <= 5; rnd++)
 	{
@@ -148,18 +135,17 @@ int levelOne()
 	else if (plyrScore > compScore)
 	{
 		cout << plyrName << " won the game!!!" << endl;
+		this_thread::sleep_for(chrono::milliseconds(3000));
 		levelTwo();
 	}
 	else
 	{
 		cout << "Computer won the game." << endl;
 	}
-
-	return 0;
 }
 
+void textBased::levelTwo()
 
-int levelTwo()
 {
 	for (int rnd = 1; rnd <= 10; rnd++)
 	{
@@ -253,7 +239,8 @@ int levelTwo()
 	else if (plyrScore > compScore)
 	{
 		cout << plyrName << " won the game!!!" << endl;
-		cout << "Now we will proceed to Level Two!!!" << endl;
+		//cout << "Now we will proceed to Level Two!!!" << endl;
+		this_thread::sleep_for(chrono::milliseconds(3000));
 		levelThree();
 	}
 	else
@@ -261,11 +248,9 @@ int levelTwo()
 		cout << "Computer won the game." << endl;
 	}
 
-	return 0;
 }
 
-
-int levelThree()
+void textBased::levelThree()
 {
 	for (int rnd = 1; rnd <= 15; rnd++)
 	{
@@ -359,11 +344,12 @@ int levelThree()
 	else if (plyrScore > compScore)
 	{
 		cout << plyrName << " won the game!!!" << endl;
+		this_thread::sleep_for(chrono::milliseconds(3000));
 	}
 	else
 	{
 		cout << "Computer won the game." << endl;
 	}
 
-	return 0;
 }
+
